@@ -1,0 +1,12 @@
+#tv {
+    width: 700px;
+}
+
+#targetcanvas {
+/*    border: 2px dashed;
+    /* useful for debugging*/
+    position: relative;
+    left: 65px;
+    top: -435px;
+    outline: none;
+}
