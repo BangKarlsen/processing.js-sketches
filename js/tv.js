@@ -6,50 +6,39 @@ var canvasSize = {
 
 $(document).ready(function() {
     switchChannel('ch04');
-
-    $('#channelButtons > button').click(function() {
-        switchChannel(this.id);
-    });
-
-    $('body').keypress(function(e) {
-        var currentChannel;
-        var code = e.which;
-        switch (code) {
-            case 32:
-                var instance = Processing.getInstanceById('targetcanvas');
-                instance.togglePause();
-                e.preventDefault();
-                return;
-            case 49:
-                currentChannel = 'ch01';
-                break;
-            case 50:
-                currentChannel = 'ch02';
-                break;
-            case 51:
-                currentChannel = 'ch03';
-                break;
-            case 52:
-                currentChannel = 'ch04';
-                break;
-            case 53:
-                currentChannel = 'ch05';
-                break;
-            default:
-                console.log('Error - no mapping for key: ' + e.which);
-                return;
-        }
-        switchChannel(currentChannel);
-    });
+    $('#channelButtons > button').click(channelButtonClick);
+    $('body').keypress(handleKeypress);
 });
+
+function channelButtonClick() {
+    switchChannel(this.id);
+}
+
+function handleKeypress(e) {        
+    e.preventDefault();
+    var keycode = e.which;
+    if (keycode === 32) {
+        var instance = Processing.getInstanceById('targetcanvas');
+        instance.togglePause();
+        return;
+    }
+    var channelKeycodeMap = {
+        '49' : 'ch01',
+        '50' : 'ch02',
+        '51' : 'ch03',
+        '52' : 'ch04',
+        '53' : 'ch05'
+    };
+    switchChannel(channelKeycodeMap[keycode]);
+}
 
 function switchChannel(channelId) {
     var channels = {
-        'ch01': 'snake',
-        'ch02': 'poisson',
-        'ch03': 'dotter',
-        'ch04': 'boxes',
-        'ch05': 'wheel'
+        'ch01' : 'snake',
+        'ch02' : 'poisson',
+        'ch03' : 'dotter',
+        'ch04' : 'boxes',
+        'ch05' : 'wheel'
     };
     var sketchName = channels[channelId];
     unloadSketch();
