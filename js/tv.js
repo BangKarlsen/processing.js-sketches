@@ -1,16 +1,13 @@
 // Must be global to access the var from the processing.js pde files
 var canvasSize = {
     width: 415,
-    height: 305,
-    top: -437,
-    left: 65
+    height: 305
 };
 
 $(document).ready(function() {
     switchChannel('ch04');
 
-    $('#channelButtons > button').click(function(e) {
-        e.preventDefault();
+    $('#channelButtons > button').click(function() {
         switchChannel(this.id);
     });
 
@@ -23,7 +20,6 @@ $(document).ready(function() {
                 instance.togglePause();
                 e.preventDefault();
                 return;
-                break;
             case 49:
                 currentChannel = 'ch01';
                 break;

@@ -1,5 +1,16 @@
 #tv {
     width: 700px;
+    margin: auto;
+}
+
+#channelButtons {
+    width: 370px;
+    margin: 50px auto 30px auto;
+}
+
+button {
+    width: 70px;
+    height: 21px;
 }
 
 #targetcanvas {
