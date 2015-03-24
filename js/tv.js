@@ -29,11 +29,17 @@ function handleKeypress(e) {
         '52' : 'ch04',
         '53' : 'ch05'
     };
-    switchChannel(channelKeycodeMap[keycode]);
+
+    var channelId = channelKeycodeMap[keycode];
+    if (channelId === undefined) {
+        channelId = 'ch00';
+    } 
+    switchChannel(channelId);
 }
 
 function switchChannel(channelId) {
     var channels = {
+        'ch00' : 'noise',
         'ch01' : 'snake',
         'ch02' : 'poisson',
         'ch03' : 'dotter',
