@@ -40,9 +40,9 @@ function handleKeypress(e) {
 function switchChannel(channelId) {
     var channels = {
         'ch00' : 'noise',
-        'ch01' : 'boxes',
-        'ch02' : 'poisson',
-        'ch03' : 'snake',
+        'ch01' : 'snake',
+        'ch02' : 'boxes',
+        'ch03' : 'poisson',
         'ch04' : 'dotter',
         'ch05' : 'wheel'
     };
@@ -60,8 +60,7 @@ function unloadSketch() {
 }
 
 function recreateCanvas() {
-    var canvasElement = '<canvas id="targetcanvas" width="' + canvasSize.width + '" height="' + canvasSize.height + '">' +
-        'Sorry, your browser does not support HTML5 canvas :(</canvas>';
+    var canvasElement = '<canvas id="targetcanvas" width="' + canvasSize.width + '" height="' + canvasSize.height + '"></canvas>';
     $('canvas').remove();
     $('#tv').append(canvasElement);
 
