@@ -57,7 +57,7 @@ void setup() {
 
 void draw() {
     int currentTime = millis();
-    if (currentTime > lastTime + 100) {
+    if (currentTime > lastTime + 75) {
         addVertice(currentTime);
         lastTime = currentTime;
     }
