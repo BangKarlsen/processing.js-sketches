@@ -5,7 +5,7 @@ var canvasSize = {
 };
 
 $(document).ready(function() {
-    switchChannel('ch04');
+    switchChannel('ch01');
     $('#channelButtons > button').click(channelButtonClick);
     $('body').keypress(handleKeypress);
 });
@@ -40,10 +40,10 @@ function handleKeypress(e) {
 function switchChannel(channelId) {
     var channels = {
         'ch00' : 'noise',
-        'ch01' : 'snake',
+        'ch01' : 'boxes',
         'ch02' : 'poisson',
-        'ch03' : 'dotter',
-        'ch04' : 'boxes',
+        'ch03' : 'snake',
+        'ch04' : 'dotter',
         'ch05' : 'wheel'
     };
     var sketchName = channels[channelId];
